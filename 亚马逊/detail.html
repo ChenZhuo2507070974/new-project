@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap模板</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tooltip.js"></script>
+    <style>
+        *{
+            border:1px solid #aaa;}
+        .my_nav{
+            width:100%;
+            border:1px solid #aaa;
+            position: relative;
+            height:40px;
+        }
+        .my_nav div{
+            height:100%;
+            border:1px solid #aaa;
+            position: absolute;
+        }
+        .a1{
+            width: 192px;
+            height:39px;
+            left:0;
+        }
+        .a2{
+            left:192px;
+            right: 420px;
+            index:1;
+            overflow: hidden;
+        }
+        .a3{
+            width:400px;
+            height:39px;
+            right:0;
+            index:2;
+        }
+        .a2 input{
+            position: absolute;
+            width:100%;
+            height:100%;
+            left:45.5px;
+            padding-left:10px;
+        }
+        .a2_all{
+            left:0;
+            position: absolute;
+            width:45px;
+            height:35px;
+        }
+        .a2_search{
+            right:0;
+            position: absolute;
+            width:45.5px;
+            height:35px;
+        }
+        .navmain{
+            height:60px;
+        }
+        .navmain_left{
+            float: left;
+            width:800px;
+            height:55px;
+        }
+        .navmain_left div,.navmain_right div{
+            float: left;
+            width:160px;
+            height:50px;
+        }
+        .navmain_left ul{
+            list-style: none;
+        }
+        .navmain_left ul li{
+            float: left;
+            margin-right:10px;
+            margin-top:20px;
+        }
+        .navmain_right{
+            margin-right: 20px;
+            float: right;
+            width:490px;
+            height:55px;
+        }
+        .adv{
+            height:40px;
+            width:100%;
+        }
+        footer .footer_end,footer .footer_toTop{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <header>
+         <div class="adv"></div>
+         <div class="my_nav">
+             <div class="a1"><img src="img/11.jpg" alt=""></div>
+             <div class="a2"><div class="a2_all"><a href="#">all</a></div><input type="text"><div class="a2_search"><a href="#">search</a></div></div>
+             <div class="a3"><img src="img/11.jpg" alt=""></div>
+         </div>
+         <div class="navmain">
+             <div class="navmain_left">
+                 <div><a href="#">商品列表</a></div>
+                 <ul>
+                     <li><a href="#">家电</a></li>
+                     <li><a href="#">家电</a></li>
+                     <li><a href="#">家电</a></li>
+                     <li><a href="#">家电</a></li>
+                     <li><a href="#">家电</a></li>
+                 </ul>
+             </div>
+             <div class="navmain_right">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+             </div>
+         </div>
+     </header>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <a href=""><img src="img/de_little.jpg" class="img-responsive img-thumbnail" alt=""></a>
+                            <a href=""><img src="img/de_little.jpg" class="img-responsive img-thumbnail" alt=""></a>
+                            <a href=""><img src="img/de_little.jpg" class="img-responsive img-thumbnail" alt=""></a>
+                            <a href=""><img src="img/de_little.jpg" class="img-responsive img-thumbnail" alt=""></a>
+                            <a href=""><img src="img/de_little.jpg" class="img-responsive img-thumbnail" alt=""></a>
+                        </div>
+                        <div class="col-lg-10">
+                            <img src="img/de_mid.jpg" class="img-responsive img-thumbnail" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4>OLYMPUS 奥林巴斯 E-M10 Mark II 单电电动镜头套装(14-42mm EZ F3.5-5.6 电动变焦镜头) (银色)</h4>
+                    <p><a href="#">OLYMPUS 奥林巴斯</a></p>
+                    <p>价格:</p>
+                    <p>款式:</p>
+                    <p>颜色</p>
+                    <p>配送至:
+                        提交
+                        北京东城区
+                        库存中仅剩 2 件</p>
+                    <p>送达日期:
+                        后天(3月7日)–下周四(3月9日)，请即刻下单并选择“快递送货上门”。</p>
+                    <p>销售配送:	由奥林巴斯专卖店直接销售和发货。</p>
+                    <p>亚马逊交易承诺：买家收货后，亚马逊支付给卖家。</p>
+                    <p>支持礼品卡、一键信用卡支付、银行卡等，但不支持货到付款。<a href="#">详情</a></p>
+                    <a href="#">显示更多</a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="well">
+                    <p>￥4999.00+￥23.00运费</p>
+                    <p>库中仅剩2件。</p>由<b>奥林巴斯专卖店</b>销售
+                    <p>数量:</p>
+                    <select class="form-control">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                    <a href="#" class="btn btn-primary btn-block">加入购物车</a>
+                    <hr>
+                    <p><a href="#">开启“一键下单”功能</a></p>
+                    <a href="#">（什么是“一键下单”？）</a>
+                    <hr>
+                    <a href="#" class="btn btn-default btn-block">加入心愿单</a>
+                </div>
+                <div class="well">
+                        <div class="btn btn-default btn-block">账户充值</div>
+                </div>
+            </div>
+        </div>
+         <div class="row col-lg-offset-1">近期浏览过的商品 <a href="#">更多商品</a></div>
+         <div class="row">
+             <div class="col-lg-2 col-lg-offset-1"><a href="#"><img src="img/p1.jpg" class="img-responsive" alt=""></a></div>
+             <div class="col-lg-2"><a href="#"><img src="img/p1.jpg" class="img-responsive" alt=""></a></div>
+             <div class="col-lg-2"><a href="#"><img src="img/p1.jpg" class="img-responsive" alt=""></a></div>
+             <div class="col-lg-2"><a href="#"><img src="img/p1.jpg" class="img-responsive" alt=""></a></div>
+             <div class="col-lg-2"><a href="#"><img src="img/p1.jpg" class="img-responsive" alt=""></a></div>
+         </div>
+     </div>
+     <footer>
+         <div class="footer_toTop"><a href="#">返回顶部</a></div>
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-2 col-lg-offset-2">
+                     <h3>了解我们</h3>
+                     <ul>
+                         <li><a href="#">人才招聘</a></li>
+                         <li><a href="#">关于我们</a></li>
+                         <li><a href="#">新闻中心</a></li>
+                         <li><a href="#">公益社区</a></li>
+                         <li><a href="#">移动客户端</a></li>
+                         <li><a href="#">风险监测</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-2">
+                     <h3>合作信息</h3>
+                     <ul>
+                         <li><a href="#">全球开店</a></li>
+                         <li><a href="#">我要开店</a></li>
+                         <li><a href="#">亚马逊物流</a></li>
+                         <li><a href="#">加入联盟</a></li>
+                         <li><a href="#">我要推广</a></li>
+                         <li><a href="#">合作伙伴</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-2">
+                     <h3>支付方式</h3>
+                     <ul>
+                         <li><a href="#">亚马逊支付</a></li>
+                         <li><a href="#">亚马逊账户</a></li>
+                         <li><a href="#">货到付款</a></li>
+                         <li><a href="#">支付宝与财付通</a></li>
+                         <li><a href="#">网上银行</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-2">
+                     <h3>帮助和购物指南</h3>
+                     <ul>
+                         <li><a href="#">订单查询</a></li>
+                         <li><a href="#">配送费收取标准</a></li>
+                         <li><a href="#">在线自助退换货</a></li>
+                         <li><a href="#">退换货政策</a></li>
+                         <li><a href="#">亚马逊助手</a></li>
+                         <li><a href="#">帮助</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <div class="footer_end">
+             <p><img src="img/footer.gif" alt=""></p>
+             <p>美国加拿大巴西墨西哥英国德国法国西班牙意大利荷兰日本印度澳大利亚亚马逊家族网站:Amazon Web ServicesDiapers.comShopbop亚马逊物流+ YAMAXUN™</p>
+            <p>使用条件隐私声明基于兴趣的广告版权所有 © 1996-2017，亚马逊公司或其关联公司</p>
+             <p>京公网安备 11010502030232号 |电信与信息服务业务经营许可证：京ICP证010225号</p>
+             <p>互联网药品信息服务资格证书 京-非经营性-2012-0005 | 出版物经营许可证新出发京批字第直0852号 |食品经营许可证：JY11105150653271</p>
+             <p>网络文化经营许可证京网文[2015]0615-245 | 营业执照：91110105721471662U</p>
+         </div>
+     </footer>
+</body>
+</html>
