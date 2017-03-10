@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap模板</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/tooltip.js"></script>
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica,'SimHei', Arial, sans-serif;
+        }
+        .well{
+            padding-bottom: 30px;
+        }
+        p{
+            /*visibility: hidden*/
+            color:indianred;
+        }
+        /*#area1{*/
+            /*display: none;*/
+        /*}*/
+        /*#area2{*/
+            /*display: none;*/
+
+        /*}*/
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <a class="navbar-brand" href="#">教务系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="main.html">首页</a></li>
+                <li><a href="#">信息查询</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li><a href="#">在线选课</a></li>
+                <li><a href="#">活动报名</a></li>
+                <li><a href="#">教师评价</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">下载 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Webstorm</a></li>
+                        <li><a href="#">Atom</a></li>
+                        <li><a href="#">Webpack</a></li>
+                        <li><a href="#">Sublime</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="area1">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                时间
+                            </th>
+                            <th>
+                                学期
+                            </th>
+                            <th>
+                                教师姓名
+                            </th>
+                            <th>
+                                学位
+                            </th>
+                            <th>
+                                学院
+                            </th>
+                            <th>
+                                专业
+                            </th>
+                            <th>
+                                进入测评
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2016-09-12</td>
+                            <td>上半学期</td>
+                            <td>Bill</td>
+                            <td>博士</td>
+                            <td>机电学院</td>
+                            <td>机械工程及自动化</td>
+                            <td><a href="#">测评</a></td>
+                        </tr>
+                        <tr>
+                            <td>CET-4</td>
+                            <td>College English Test Band 4</td>
+                            <td>另行通知</td>
+                            <td>2017-04-09 13:30</td>
+                            <td>携带准考证、学生证件等</td>
+                            <td>--</td>
+                            <td><a href="#">报名</a></td>
+                        </tr>
+                        <tr>
+                            <td>CET-4</td>
+                            <td>College English Test Band 4</td>
+                            <td>另行通知</td>
+                            <td>2017-04-09 13:30</td>
+                            <td>携带准考证、学生证件等</td>
+                            <td>--</td>
+                            <td><a href="#">报名</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="area2">
+                <div class="question">
+                    <div class="q1">
+                        <h3>1.任课教师是否耐心解答学生提问并深入讲解知识点？</h3>
+                        <div class="checkbox">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">经常，并且积极讲解
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">讲解但并不深入
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">偶尔讲解
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">极少讲解
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="q1">
+                        <h3>1.任课教师是否耐心解答学生提问并深入讲解知识点？</h3>
+                        <div class="checkbox">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">经常，并且积极讲解
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">讲解但并不深入
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">偶尔讲解
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>
+                                        <input type="radio" name="q1">极少讲解
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.list-group a').click(
+        function(){
+            console.log($(this).attr("href"))
+            var goal=$(this).attr("href");
+            $(goal).addClass('show').siblings('.show').removeClass('show')
+        }
+    )
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap模板</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        *{
+            border:1px solid #f0ad4e;
+            margin:0;
+            padding:0;
+        }
+        section p{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h1>login</h1>
+                name<input name="log" type="text"><p>用户名不能为空</p>
+                password<input name="log" type="text"><p>密码不能为空</p>
+                <button type="submit">go</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $('button').click(function(){
+            var name=$('input:eq(0)').val()
+            var pwd=$('input:eq(1)').val()
+            console.log(name,pwd)
+            var xhr=new XMLHttpRequest();
+        })
+        $('input').blur(function(){
+            if($(this).val()==''){
+                $(this).next('p').show()
+            }
+        });
+    </script>
+    <script>
+
+        $('#log').click(function(){
+            var name=$('#name').val();
+            var password=$('#password').val();
+            console.log(name,password);
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        var res=xhr.responseText;
+                        console.log(res);
+                        location.href='http://www.amazon.com';
+                    }
+                }
+            }
+            xhr.open("POST","login.php?uname="+name+"&upwd="+password,true);
+            xhr.send(null);
+        });
+    </script>
+</body>
+</html>
