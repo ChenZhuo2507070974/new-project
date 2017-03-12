@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ng_module">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="pragram" content="no-cache">
+    <title>Bootstrap模板</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-route.js"></script>
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica,'SimHei', Arial, sans-serif;
+        }
+        .well{
+            padding-bottom: 30px;
+        }
+        p{
+            /*visibility: hidden*/
+            color:indianred;
+        }
+        /*#area1{*/
+        /*display: none;*/
+        /*}*/
+        /*#area2{*/
+        /*display: none;*/
+        /*}*/
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body ng-controller="parentCtrl">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <a class="navbar-brand" href="#">教务系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#myMain">首页</a></li>
+                <li><a href="#myInfo">信息查询</a></li>
+                <li><a href="#myCen">个人中心</a></li>
+                <li><a href="#lesson">在线选课</a></li>
+                <li><a href="#myAct">活动报名</a></li>
+                <li><a href="#myTea">教师评价</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">下载 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Webstorm</a></li>
+                        <li><a href="#">Atom</a></li>
+                        <li><a href="#">Webpack</a></li>
+                        <li><a href="#">Sublime</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" ng-click="exit()">用户{{id}}已登录,点击退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ng-view></ng-view>
+<script>
+    var st=localStorage['id']
+    if(st==null){
+        location.href='login.html'
+    }else{
+        var app=angular.module('ng_module',['ng','ngRoute','ngAnimate']);
+        app.controller('parentCtrl', ['$scope', '$location',
+            function ($scope, $location) {
+                $scope.jump = function (routePath) {
+                    $location.path(routePath);
+                }
+                $scope.exit=function(){
+                    localStorage.clear()
+                    location.href='login.html'
+                }
+                $scope.id=localStorage['id']
+                //console.log(localStorage['id'])
+            }
+        ])
+        app.config(function($routeProvider){
+            $routeProvider
+                .when('/lesson',{
+                    templateUrl:'les.html',
+                    controller:'lessonCtrl'
+                })
+                .when('/myMain',{
+                    templateUrl:'mymain.html'
+                })
+                .when('/myCen',{
+                    templateUrl:'uCen.html'
+                })
+                .when('/myTea',{
+                    templateUrl:'teac.html'
+                })
+                .when('/myAct',{
+                    templateUrl:'activities.html',
+                    controller:'actCtrl'
+                })
+                .when('/myInfo',{
+                    templateUrl:'inf.html',
+                    controller:'infoCtrl'
+                })
+                .otherwise({redirectTo:'/myMain'})
+        })
+        app.controller('actCtrl',['$http','$scope',function($http,$scope){
+            $scope.act=1
+        }])
+        app.controller('infoCtrl',['$http','$scope',function($http,$scope){
+            $scope.infom=1
+        }])
+        app.controller('lessonCtrl',['$http','$scope',function($http,$scope){
+            $scope.les=1;
+            $scope.lessonName=function(item){
+                //console.log(item)
+                if($scope.num>0){
+                    $scope.num--;
+                    $scope.state="还剩"+$scope.num+"科未报名";
+                    item.count--;
+                    item.state=1;
+                    //console.log("报名成功！还剩"+$scope.num+"科未报名")
+                    $http
+                        .get('data/orderLesson.php?name='+item.className)
+                }else{
+                    $scope.state="报名课程次数已满！"
+                    //console.log("报名课程次数已满！")
+                }
+            }
+            $scope.lessonName1=function(item){
+                console.log(item.className)
+                $http
+                    .get('data/orderLesson1.php?name='+item.className)
+                    .success(function(){
+                        console.log("succ")
+                    })
+            }
+            $http
+                .get('data/lesOrdered.php')
+                .success(function(data){
+                    //console.log(data);
+                    $scope.num=4-data;
+                    $scope.state="还剩"+$scope.num+"科未报名";
+                    $http
+                        .get('data/stulessonList.php')
+                        .success(function(data){
+                            $scope.myList=data;
+                            //console.log(data)
+                            $http
+                                .get('data/lessonList.php')
+                                .success(function(data){
+                                    $scope.lessonList=data;
+                                    for(var i=0;i<$scope.lessonList.length;i++){
+                                        //console.log($scope.lessonList[i].className)
+                                        $scope.lessonList[i].state=0;
+                                        for(var j=0;j<$scope.myList.length;j++){
+                                            //console.log($scope.myList[j].className)
+                                            if($scope.lessonList[i].className==$scope.myList[j].className){
+                                                //console.log("有相同项！")
+                                                $scope.lessonList[i].state=1;
+                                                //console.log($scope.lessonList[i].state)
+                                            }
+                                        }
+                                    }
+                                })
+                        })
+                })
+            $http
+                .get('data/lessonList1.php')
+                .success(function(data){
+                    $scope.lessonList1=data;
+                    console.log(data)
+                })
+        }])
+    }
+
+</script>
+</body>
+</html>

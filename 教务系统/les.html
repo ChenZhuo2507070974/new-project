@@ -1,0 +1,199 @@
+
+<body>
+
+<!--<nav class="navbar navbar-default" role="navigation">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse"-->
+                    <!--data-target="#example-navbar-collapse">-->
+                <!--<span class="glyphicon glyphicon-menu-hamburger"></span>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" href="#">教务系统</a>-->
+        <!--</div>-->
+        <!--<div class="collapse navbar-collapse" id="example-navbar-collapse">-->
+            <!--<ul class="nav navbar-nav">-->
+                <!--<li class="active"><a href="main.html">首页</a></li>-->
+                <!--<li><a href="#">信息查询</a></li>-->
+                <!--<li><a href="#">个人中心</a></li>-->
+                <!--<li><a href="#">在线选课<span class="badge">30</span></a></li>-->
+                <!--<li><a href="#">活动报名</a></li>-->
+                <!--<li><a href="#">教师评价</a></li>-->
+                <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">下载 <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">Webstorm</a></li>-->
+                        <!--<li><a href="#">Atom</a></li>-->
+                        <!--<li><a href="#">Webpack</a></li>-->
+                        <!--<li><a href="#">Sublime</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+
+            <ul class="list-group">
+                <li class="list-group-item"><a ng-click="les=1;">选修课选课</a></li>
+                <li class="list-group-item"><a ng-click="les=2;">必修课选课</a></li>
+                <li class="list-group-item"><a ng-click="les=3;">重修或补修选课</a></li>
+                <li class="list-group-item"><a ng-click="les=4;">我的选课</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-10">
+            <div ng-show="les==1" >
+                <h3>选修课程列表</h3>
+                <p>提示:每人每学期限报4门选修课程 {{state}}</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                课程名称
+                            </th>
+                            <th>
+                                课程内容
+                            </th>
+                            <th>
+                                地点
+                            </th>
+                            <th>
+                                开始时间
+                            </th>
+                            <th>
+                                持续时间(周)
+                            </th>
+                            <th>
+                                剩余名额
+                            </th>
+                            <th>
+                                是否报名
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in lessonList">
+                            <td>{{item.className}}</td>
+                            <td>{{item.content}}</td>
+                            <td>{{item.location}}</td>
+                            <td>{{item.sTime}}</td>
+                            <td>{{item.last}}</td>
+                            <td>{{item.count}}</td>
+                            <td><button ng-show="!item.state" class="btn btn-primary" ng-click="lessonName(item)">报名</button><button ng-show="item.state" class="btn btn-danger disabled">已报名</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-show="les==2" >
+                <h3>必修课程列表</h3>
+                <p>提示:必修课程报名最多仅余一科</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            课程名称
+                        </th>
+                        <th>
+                            课程内容
+                        </th>
+                        <th>
+                            地点
+                        </th>
+                        <th>
+                            开始时间
+                        </th>
+                        <th>
+                            持续时间(周)
+                        </th>
+                        <th>
+                            是否报名
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in lessonList1">
+                        <td>{{item.className}}</td>
+                        <td>{{item.content}}</td>
+                        <td>{{item.location}}</td>
+                        <td>{{item.sTime}}</td>
+                        <td>{{item.last}}</td>
+                        <td><button ng-show="!item.state" class="btn btn-primary" ng-click="lessonName1(item)">报名</button><button ng-show="item.state" class="btn btn-danger disabled">已报名</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-show="les==3" >
+                <h3>重修或补修课程列表</h3>
+                <p>提示:每人每学期限报4门选修课程 {{state}}</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            课程名称
+                        </th>
+                        <th>
+                            课程内容
+                        </th>
+                        <th>
+                            地点
+                        </th>
+                        <th>
+                            开始时间
+                        </th>
+                        <th>
+                            持续时间(周)
+                        </th>
+                        <th>
+                            剩余名额
+                        </th>
+                        <th>
+                            是否报名
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in lessonList">
+                        <td>{{item.className}}</td>
+                        <td>{{item.content}}</td>
+                        <td>{{item.location}}</td>
+                        <td>{{item.sTime}}</td>
+                        <td>{{item.last}}</td>
+                        <td>{{item.count}}</td>
+                        <td><button ng-show="!item.state" class="btn btn-primary" ng-click="lessonName(item)">报名</button><button ng-show="item.state" class="btn btn-danger disabled">已报名</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-show="les==4">
+                <h3>我的选课列表</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            课程名称
+                        </th>
+                        <th>
+                            课程类型
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in myList">
+                        <td>{{item.className}}</td>
+                        <td>{{item.type}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+    <!--$('.list-group a').click(-->
+<!--function(){-->
+<!--console.log($(this).attr("href"))-->
+<!--var goal=$(this).attr("href");-->
+<!--$(goal).addClass('show').siblings('.show').removeClass('show')-->
+<!--}-->
+<!--)-->
+<!--</script>-->

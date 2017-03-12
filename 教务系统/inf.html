@@ -1,0 +1,200 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+
+            <ul class="list-group">
+                <li class="list-group-item"><a ng-click="infom=1">课程表</a></li>
+                <li class="list-group-item"><a ng-click="infom=2">考试查询</a></li>
+                <li class="list-group-item"><a ng-click="infom=3">成绩查询</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-10">
+            <div ng-show="infom==1" class="show">
+                <table id="sd" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="2">时间</th>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                            <th>星期日</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">早晨</td>
+                            <td><p></p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">上午</td>
+                            <td>第1节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第2节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第3节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第4节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">下午</td>
+                            <td>第5节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第6节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第7节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第8节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">晚自习</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--学年	学期	课程代码	课程名称	课程性质	课程归属	学分	绩点	成绩	辅修标记	补考成绩	重修成绩	开课学院	备注	重修标记-->
+            <div ng-show="infom==2" style="font-size: 12px;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>学年</th>
+                            <th>学期</th>
+                            <th>课程代码</th>
+                            <th>课程名称</th>
+                            <th>课程性质</th>
+                            <th>课程归属</th>
+                            <th>学分</th>
+                            <th>绩点</th>
+                            <th>成绩</th>
+                            <th>辅修标记</th>
+                            <th>补考成绩</th>
+                            <th>重修</th>
+                            <th>成绩</th>
+                            <th>开课学院</th>
+                            <th>备注</th>
+                            <th>重修标记</th>
+                        </tr>
+                    </thead>
+                </table>
+                <ul class="pagination" style="display:table; width: auto; margin-left: auto;margin-right: auto;">
+                    <li class="disabled"><a href="#" aria-label="Previous">&laquo</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li ><a href="#">2</a></li>
+                    <li ><a href="#">3</a></li>
+                    <li ><a href="#">4</a></li>
+                    <li ><a href="#">5</a></li>
+                    <li ><a href="#" aria-label="Previous">&raquo</a></li>
+                </ul>
+            </div>
+            <div ng-show="infom==3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                考试科目
+                            </th>
+                            <th>
+                                地点
+                            </th>
+                            <th>
+                                开始时间
+                            </th>
+                            <th>
+                                时长
+                            </th>
+                            <th>
+                                注意事项
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CET-4</td>
+                            <td>另行通知</td>
+                            <td>2017-04-09 13:30</td>
+                            <td>携带准考证、学生证件等</td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica,'SimHei', Arial, sans-serif;
+        }
+        .well{
+            padding:60px 40px 30px 40px;
+        }
+        .mid{
+            positoin:absolute;
+            top:50%;
+            left:50%;
+        }
+        @media screen and (min-width: 900px){
+            .vertical-center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .h{
+            visibility: hidden
+        }
+    </style>
+</head>
+<body>
+            <div class="col-md-5 col-centered vertical-center">
+                <div class="well">
+                    <h3 class="text-center">教务管理系统登录</h3>
+                    <p></p>
+                    <hr>
+                    <p></p>
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label>学号:</label>
+                            <input type="text" class="form-control" id="uid">
+                            <p></p>
+                            <label>密码:</label>
+                            <input type="password" class="form-control" id="pwd">
+                            <p></p>
+                            <label>验证码:</label>
+                            <h6 class="h">验证码错误</h6>
+                            <h6 id="empty" class="h">内容不能为空</h6>
+                            <h6 id="state" class="h">用户名或密码错误,请重新输入</h6>
+                            <a id="login" class="btn btn-primary btn-block">登录</a>
+                            <a class="pull-right">遇到问题？&raquo</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                $('#login').click(function(){
+                    var uid=$('#uid').val()
+                    var pwd=$('#pwd').val()
+                    var show=$('#empty');
+                    var state=$('#state');
+                    if(uid==''||pwd==''){
+                        show.removeClass('h')
+                    }else{
+                        show.addClass('h')
+                        var xhr=new XMLHttpRequest();
+                        xhr.onreadystatechange=function(){
+                            if(xhr.readyState===4){
+                                if(xhr.status===200){
+                                    var res=xhr.responseText;
+                                    console.log(res);
+                                    if(res==1){
+                                        localStorage.setItem('id',uid);
+                                        localStorage.setItem('pwd',pwd);
+                                        state.html('登录成功！3s后跳转到首页...')
+                                        state.removeClass('h')
+                                        setTimeout(function(){location.href="ng.html";},3000)
+                                    }else{
+                                        state.removeClass('h')
+                                    }
+                                }
+                            }
+                        }
+                        xhr.open("POST","data/login.php?id="+uid+"&pwd="+pwd,true);
+                        xhr.send(null);
+                    }
+
+                })
+            </script>
+</body>
+</html>
